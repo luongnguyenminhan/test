@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phương pháp trích xuất thông tin cuộc họp</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Changed from scroll to hidden */
+    }
+</style>
+<style>
+    .closing-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 120px;
+    }
+    
+    .closing-container h1 {
+      font-size: 56px;
+      margin-bottom: 50px;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 50px;
+      margin-top: 60px;
+      justify-content: center;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 20px;
+      color: #333;
+    }
+    
+    .contact-item i {
+      font-size: 28px;
+      color: #034ea2;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(3, 78, 162, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover i {
+      background-color: #034ea2;
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .thank-you {
+      font-size: 72px;
+      font-weight: 700;
+      background: linear-gradient(45deg, #034ea2, #f37021);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    .questions {
+      font-size: 24px;
+      color: #555;
+      margin-bottom: 50px;
+      font-weight: 500;
+    }
+    
+    .company-logo {
+      margin-top: 60px;
+      max-width: 200px;
+      opacity: 0.8;
+    }
+    
+    .highlight {
+      position: relative;
+    }
+    
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #f37021;
+    }
+
+    .slide-nav-buttons {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(3, 78, 162, 0.8);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-btn:hover {
+      background-color: rgba(3, 78, 162, 1);
+      transform: scale(1.1);
+    }
+
+    /* Add transition for smooth slide changes */
+    .slide-container {
+      transition: transform 0.5s ease;
+    }
+  </style>
+<body>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 1/11</div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="slide-main-content">
+        <div class="app-logo">
+          <h2>Meobeo.ai</h2>
+          <div class="app-tagline">Trợ lý thông minh cho cuộc họp của bạn</div>
+        </div>
+        
+        <h1>Phương pháp trích xuất thông tin cuộc họp</h1>
+        
+        <div class="subtitle">
+          Ứng dụng công nghệ phân tích dữ liệu giọng nói và trí tuệ nhân tạo để hỗ trợ User trong việc ghi nhận, 
+          lưu trữ và khai thác dữ liệu cuộc họp hiệu quả thông qua nền tảng Meobeo.ai.
+        </div>
+        
+        <!-- Font Awesome Icons Container -->
+        <div class="icon-container">
+          <!-- Meeting Icon -->
+          <div class="icon-item">
+            <i class="fa-solid fa-users-rectangle"></i>
+            <span class="icon-label">Smart Meeting</span>
+          </div>
+          
+          <!-- AI System Icon -->
+          <div class="icon-item">
+            <i class="fa-solid fa-brain"></i>
+            <span class="icon-label">AI System</span>
+          </div>
+          
+          <!-- Integration Icon -->
+          <div class="icon-item">
+            <i class="fa-solid fa-plug-circle-check"></i>
+            <span class="icon-label">Easy Integration</span>
+          </div>
+        </div>
+        
+        <div class="tagline">
+          Smart Meeting <span class="divider">•</span> AI System <span class="divider">•</span> Easy Integration
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 2/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <!-- Slide Title -->
+        <div class="slide-title">
+          <h1>Cải tiến Phương pháp Trích xuất</h1>
+        </div>
+        
+        <!-- Two Column Content -->
+        <div class="content-two-columns">
+          <div class="column">
+            <div class="problem-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-code-compare"></i>
+                </div>
+                <h3>Phương pháp cũ</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul>
+                  <li>Sử dụng <strong>single-turn completion</strong> với Gemini 2.0 Flash, gửi prompt và nhận phản hồi một lần</li>
+                  <li>Xử lý transcript bằng phương thức <code>divide_transcript</code> với kích thước chunk cố định dựa trên số token</li>
+                  <li>Sử dụng class <code>MeetingSecretary</code> để phân tích toàn bộ nội dung thông qua một prompt chi tiết</li>
+                  <li>Thực hiện việc tinh chỉnh (refinement) chỉ khi có nhiều hơn 1 chunk, với phương thức <code>refine_summary</code></li>
+                  <li>Xử lý các chunk riêng biệt, sau đó ghép lại kết quả mà không có cơ chế ghi nhớ ngữ cảnh giữa các chunk</li>
+                  <li>Thiếu cơ chế kiểm tra chất lượng đầu vào, không có quy trình xử lý ngoại lệ tự động</li>
+                  <li>Theo dõi token usage thông qua biến số thủ công (<code>input_tokens</code>, <code>output_tokens</code>)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="impact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <h3>Phương pháp cải tiến</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul>
+                  <li>Sử dụng <strong>StateGraph</strong> từ <code>LangGraph</code> để xây dựng luồng xử lý linh hoạt và có thể mở rộng</li>
+                  <li>Áp dụng <strong>MemorySaver</strong> và <code>checkpoint</code> để lưu trữ trạng thái giữa các bước xử lý</li>
+                  <li>Tích hợp <code>check_informative</code> để kiểm tra chất lượng transcript trước khi xử lý sâu hơn</li>
+                  <li>Phân tích transcript thành các chunk có độ chồng lấp (overlap) để đảm bảo ngữ cảnh được bảo toàn</li>
+                  <li>Xử lý song song các chunk với <code>batch_size</code> và <code>max_concurrency</code> đảm bảo hiệu suất</li>
+                  <li>Tích hợp <code>handle_rate_limit</code> để tự động xử lý giới hạn API và retry khi cần</li>
+                  <li>Loại bỏ trùng lặp thông minh giữa các chunk, xác định thông tin chồng lấp dựa trên nội dung</li>
+                  <li>Sử dụng các schema Pydantic (<code>ChunkSummary</code>, <code>MeetingItems</code>) để đảm bảo cấu trúc dữ liệu nhất quán</li>
+                  <li>Tạo báo cáo cuối cùng có định dạng Markdown với <code>generate_meeting_note</code> có cấu trúc chuẩn hóa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Preview with enhanced technical details -->
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <p>Mô hình mới sử dụng kiến trúc <strong>directed acyclic graph</strong> với các node xử lý được kết nối thông qua điều kiện. Quy trình được kiểm soát bởi các nút chính: <code>check_informative</code> đánh giá chất lượng đầu vào, <code>extract_chunk_summaries</code> trích xuất thông tin từ các đoạn có overlap, và <code>generate_final_output</code> tổng hợp thành báo cáo có cấu trúc. Hệ thống sử dụng <code>langgraph.checkpoint.memory.MemorySaver</code> để duy trì trạng thái xử lý xuyên suốt quá trình.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 3/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Kiến trúc Directed Acyclic Graph (DAG)</h1>
+        </div>
+        
+        <div class="content-with-image">
+          <div class="text left">
+            <p class="orange bold">Thành phần chính của hệ thống:</p>
+            <ul class="dag-node-list">
+              <li><strong>StateGraph</strong>: Luồng xử lý chính dựa trên đồ thị</li>
+              <li><strong>MemorySaver</strong>: Lưu trữ trạng thái giữa các bước</li>
+              <li><strong>Các Node</strong>:
+                <ul>
+                  <li>check_informative: Kiểm tra chất lượng transcript</li>
+                  <li>extract_chunk_summaries: Trích xuất thông tin theo chunk</li>
+                  <li>generate_final_output: Tạo kết quả cuối cùng</li>
+                </ul>
+              </li>
+              <li><strong>Conditional Edges</strong>: Điều hướng luồng xử lý dựa trên kết quả</li>
+            </ul>
+            
+            <p class="orange bold mt-20">Luồng xử lý theo đồ thị:</p>
+            <ol class="dag-workflow">
+              <li>START → check_informative</li>
+              <li>check_informative → extract_chunk_summaries <span class="condition">(nếu informative = True)</span></li>
+              <li>check_informative → generate_final_output <span class="condition">(nếu informative = False)</span></li>
+              <li>extract_chunk_summaries → generate_final_output</li>
+              <li>generate_final_output → END</li>
+            </ol>
+          </div>
+          
+          <div class="image right">
+            <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background -->
+                <rect width="1000" height="600" fill="#f8fafc" rx="15" ry="15"/>
+                
+                <!-- Node definitions -->
+                <defs>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="3" dy="3" stdDeviation="5" flood-opacity="0.2"/>
+                  </filter>
+                  
+                  <!-- Gradient definitions -->
+                  <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2563eb" />
+                    <stop offset="100%" stop-color="#1e40af" />
+                  </linearGradient>
+                  
+                  <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fb923c" />
+                    <stop offset="100%" stop-color="#ea580c" />
+                  </linearGradient>
+                  
+                  <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4ade80" />
+                    <stop offset="100%" stop-color="#16a34a" />
+                  </linearGradient>
+                  
+                  <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#94a3b8" />
+                    <stop offset="100%" stop-color="#475569" />
+                  </linearGradient>
+                  
+                  <!-- Arrow marker definition with improved style -->
+                  <marker id="arrowBlue" markerWidth="12" markerHeight="12" 
+                          refX="12" refY="6" orient="auto">
+                    <path d="M0,0 L12,6 L0,12 L4,6 Z" fill="url(#blueGradient)"/>
+                  </marker>
+                  
+                  <marker id="arrowOrange" markerWidth="12" markerHeight="12" 
+                          refX="12" refY="6" orient="auto">
+                    <path d="M0,0 L12,6 L0,12 L4,6 Z" fill="url(#orangeGradient)"/>
+                  </marker>
+                  
+                  <marker id="arrowGreen" markerWidth="12" markerHeight="12" 
+                          refX="12" refY="6" orient="auto">
+                    <path d="M0,0 L12,6 L0,12 L4,6 Z" fill="url(#greenGradient)"/>
+                  </marker>
+                </defs>
+                
+                <!-- Grid lines for better visual guidance -->
+                <g class="grid" stroke="#e2e8f0" stroke-width="0.5">
+                  <g>
+                    <line x1="0" y1="100" x2="1000" y2="100" />
+                    <line x1="0" y1="200" x2="1000" y2="200" />
+                    <line x1="0" y1="300" x2="1000" y2="300" />
+                    <line x1="0" y1="400" x2="1000" y2="400" />
+                    <line x1="0" y1="500" x2="1000" y2="500" />
+                  </g>
+                  <g>
+                    <line x1="100" y1="0" x2="100" y2="600" />
+                    <line x1="200" y1="0" x2="200" y2="600" />
+                    <line x1="300" y1="0" x2="300" y2="600" />
+                    <line x1="400" y1="0" x2="400" y2="600" />
+                    <line x1="500" y1="0" x2="500" y2="600" />
+                    <line x1="600" y1="0" x2="600" y2="600" />
+                    <line x1="700" y1="0" x2="700" y2="600" />
+                    <line x1="800" y1="0" x2="800" y2="600" />
+                    <line x1="900" y1="0" x2="900" y2="600" />
+                  </g>
+                </g>
+                
+                <!-- Edges/Arrows -->
+                <g class="edges">
+                  <!-- START to check_informative -->
+                  <path d="M170,300 C210,300 240,300 290,300" 
+                        stroke="url(#blueGradient)" stroke-width="4" 
+                        fill="none" marker-end="url(#arrowBlue)" 
+                        stroke-linecap="round" />
+                  
+                  <!-- check_informative to extract_chunk_summaries -->
+                  <path d="M470,260 C520,230 570,200 620,200" 
+                        stroke="url(#greenGradient)" stroke-width="4" 
+                        fill="none" marker-end="url(#arrowGreen)" 
+                        stroke-linecap="round" />
+                  
+                  <!-- check_informative to generate_final_output -->
+                  <path d="M470,340 C520,370 570,400 620,400" 
+                        stroke="url(#orangeGradient)" stroke-width="4" 
+                        fill="none" marker-end="url(#arrowOrange)" 
+                        stroke-linecap="round" />
+                  
+                  <!-- extract_chunk_summaries to generate_final_output -->
+                  <path d="M700,240 C720,280 720,320 700,360" 
+                        stroke="url(#greenGradient)" stroke-width="4" 
+                        fill="none" marker-end="url(#arrowGreen)" 
+                        stroke-linecap="round" />
+                  
+                  <!-- generate_final_output to END -->
+                  <path d="M760,300 C800,300 820,300 860,300" 
+                        stroke="url(#blueGradient)" stroke-width="4" 
+                        fill="none" marker-end="url(#arrowBlue)" 
+                        stroke-linecap="round" />
+                </g>
+                
+                <!-- Nodes -->
+                <g class="nodes">
+                  <!-- START node -->
+                  <g class="node start" transform="translate(100,300)">
+                    <circle r="50" fill="white" stroke="url(#blueGradient)" stroke-width="5" filter="url(#shadow)"/>
+                    <text text-anchor="middle" dy="0" font-size="22" font-weight="bold" fill="#1e40af">START</text>
+                    <circle r="55" fill="none" stroke="url(#blueGradient)" stroke-width="1" opacity="0.5"/>
+                  </g>
+                  
+                  <!-- check_informative node -->
+                  <g class="node check" transform="translate(380,300)">
+                    <rect x="-110" y="-60" width="220" height="120" rx="18" fill="white" 
+                          stroke="url(#orangeGradient)" stroke-width="5" filter="url(#shadow)"/>
+                    <text text-anchor="middle" dy="-20" font-size="22" font-weight="bold" fill="#ea580c">check_informative</text>
+                    <text text-anchor="middle" dy="20" font-size="20" fill="#ea580c">Kiểm tra chất lượng</text>
+                    <rect x="-115" y="-65" width="230" height="130" rx="22" fill="none" 
+                          stroke="url(#orangeGradient)" stroke-width="1" opacity="0.5"/>
+                  </g>
+                  
+                  <!-- extract_chunk_summaries node -->
+                  <g class="node extract" transform="translate(660,200)">
+                    <rect x="-110" y="-60" width="220" height="120" rx="18" fill="white" 
+                          stroke="url(#greenGradient)" stroke-width="5" filter="url(#shadow)"/>
+                    <text text-anchor="middle" dy="-30" font-size="22" font-weight="bold" fill="#16a34a">extract_chunk</text>
+                    <text text-anchor="middle" dy="0" font-size="22" font-weight="bold" fill="#16a34a">summaries</text>
+                    <text text-anchor="middle" dy="30" font-size="20" fill="#16a34a">Trích xuất thông tin</text>
+                    <rect x="-115" y="-65" width="230" height="130" rx="22" fill="none" 
+                          stroke="url(#greenGradient)" stroke-width="1" opacity="0.5"/>
+                  </g>
+                  
+                  <!-- generate_final_output node -->
+                  <g class="node generate" transform="translate(660,400)">
+                    <rect x="-110" y="-60" width="220" height="120" rx="18" fill="white" 
+                          stroke="url(#blueGradient)" stroke-width="5" filter="url(#shadow)"/>
+                    <text text-anchor="middle" dy="-30" font-size="22" font-weight="bold" fill="#1e40af">generate_final</text>
+                    <text text-anchor="middle" dy="0" font-size="22" font-weight="bold" fill="#1e40af">output</text>
+                    <text text-anchor="middle" dy="30" font-size="20" fill="#1e40af">Tạo kết quả cuối</text>
+                    <rect x="-115" y="-65" width="230" height="130" rx="22" fill="none" 
+                          stroke="url(#blueGradient)" stroke-width="1" opacity="0.5"/>
+                  </g>
+                  
+                  <!-- END node -->
+                  <g class="node end" transform="translate(900,300)">
+                    <circle r="50" fill="white" stroke="url(#grayGradient)" stroke-width="5" filter="url(#shadow)"/>
+                    <text text-anchor="middle" dy="0" font-size="22" font-weight="bold" fill="#475569">END</text>
+                    <circle r="55" fill="none" stroke="url(#grayGradient)" stroke-width="1" opacity="0.5"/>
+                  </g>
+                </g>
+                
+                <!-- Condition text labels -->
+                <g class="labels" font-family="Arial, sans-serif">
+                  <g transform="translate(520,210)">
+                    <rect x="-150" y="-15" width="160" height="30" rx="15" fill="white" opacity="0.8" />
+                    <text x="-70" y="5" font-size="18" fill="#16a34a" text-anchor="middle" font-weight="bold">
+                      informative = True
+                    </text>
+                  </g>
+                  
+                  <g transform="translate(520,390)">
+                    <rect x="-150" y="-15" width="160" height="30" rx="15" fill="white" opacity="0.8" />
+                    <text x="-70" y="5" font-size="18" fill="#ea580c" text-anchor="middle" font-weight="bold">
+                      informative = False
+                    </text>
+                  </g>
+                </g>
+                
+                <!-- Legend -->
+                <g class="legend" transform="translate(100,520)">
+                  <rect x="0" y="0" width="800" height="60" rx="12" fill="white" stroke="#e2e8f0" stroke-width="1" />
+                  
+                  <!-- Legend title -->
+                  <text x="25" y="35" font-size="18" font-weight="bold" fill="#475569">Chú thích:</text>
+                  
+                  <!-- Legend items -->
+                  <g transform="translate(150,0)">
+                    <!-- Blue item -->
+                    <circle cx="00" cy="30" r="12" fill="url(#blueGradient)" />
+                    <text x="25" y="35" font-size="16" fill="#475569">Khởi đầu/Kết thúc</text>
+                    
+                    <!-- Orange item -->
+                    <circle cx="200" cy="30" r="12" fill="url(#orangeGradient)" />
+                    <text x="225" y="35" font-size="16" fill="#475569">Điều kiện</text>
+                    
+                    <!-- Green item -->
+                    <circle cx="350" cy="30" r="12" fill="url(#greenGradient)" />
+                    <text x="375" y="35" font-size="16" fill="#475569">Xử lý dữ liệu</text>
+                    
+                    <!-- Gray item -->
+                    <circle cx="500" cy="30" r="12" fill="url(#grayGradient)" />
+                    <text x="525" y="35" font-size="16" fill="#475569">Kết thúc</text>
+                  </g>
+                </g>
+                
+                <!-- Title -->
+                <g class="title">
+                  <text x="500" y="60" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">
+                    Biểu đồ Luồng Xử lý Dữ liệu
+                  </text>
+                  <text x="500" y="95" font-size="20" text-anchor="middle" fill="#64748b">
+                    Directed Acyclic Graph (DAG) Workflow
+                  </text>
+                </g>
+              </svg>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <p>Kiến trúc DAG cho phép kiểm soát chặt chẽ luồng xử lý dữ liệu, tăng tính mô-đun và khả năng mở rộng của hệ thống. Các node được kết nối thông qua điều kiện, giúp dễ dàng lọc và xử lý các trường hợp đặc biệt như transcript kém chất lượng.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 4/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Phương pháp Giải quyết</h1>
+        </div>
+        
+        <div class="methodology-content">
+          <div class="methodology-overview">
+            <h2><i class="fa-solid fa-diagram-project methodology-icon"></i> Tổng quan quy trình xử lý</h2>
+            <ul class="methodology-list">
+              <li>
+                <strong>Kiểm tra chất lượng đầu vào:</strong> Đánh giá transcript có đủ dài và có đủ dấu hiệu hội thoại hay không
+              </li>
+              <li>
+                <strong>Trích xuất thông tin:</strong> Chia transcript thành các đoạn chồng lấp, xử lý bằng LLM (Google Gemini via LangChain) để trích xuất dữ liệu có cấu trúc
+              </li>
+              <li>
+                <strong>Gộp & loại bỏ trùng lặp:</strong> Kết hợp kết quả từ các đoạn, áp dụng thuật toán loại bỏ trùng lặp do chồng lấp
+              </li>
+              <li>
+                <strong>Tạo kết quả cuối cùng:</strong> Định dạng thông tin thành ghi chú cuộc họp dưới dạng Markdown với cấu trúc chuẩn
+              </li>
+            </ul>
+          </div>
+          
+          <div class="methodology-decisions">
+            <h2><i class="fa-solid fa-lightbulb methodology-icon"></i> Các quyết định thiết kế</h2>
+            <div class="decisions-columns">
+              <ul class="methodology-list col-left">
+                <li>
+                  <strong>LangGraph:</strong> Cho phép định nghĩa quy trình có trạng thái (state), phân nhánh có điều kiện và lưu trữ trạng thái giữa các bước
+                </li>
+                <li>
+                  <strong>LangChain:</strong> Đơn giản hóa việc tương tác với LLM, tạo template cho prompt và xử lý kết quả có cấu trúc
+                </li>
+                <li>
+                  <strong>Google Gemini:</strong> LLM cân bằng tốt giữa khả năng, tốc độ và chi phí. Temperature = 0 để đảm bảo kết quả nhất quán
+                </li>
+                <li>
+                  <strong>Pydantic Schema:</strong> Đảm bảo LLM trả về JSON có cấu trúc nhất quán, dễ dàng xử lý sau này
+                </li>
+              </ul>
+              <ul class="methodology-list col-right">
+                <li>
+                  <strong>Chunking & Overlapping:</strong> Xử lý transcript dài vượt quá context window của LLM, overlap giúp không mất thông tin ở ranh giới
+                </li>
+                <li>
+                  <strong>Trích xuất một lần:</strong> Một prompt phức tạp để lấy mọi thông tin cần thiết trong một lần gọi, giảm số lượng API calls
+                </li>
+                <li>
+                  <strong>Xử lý theo batch:</strong> Gọi LLM cho nhiều chunk cùng lúc (batch) để tăng hiệu suất, có cơ chế xử lý rate limit
+                </li>
+                <li>
+                  <strong>TokenTracker:</strong> Theo dõi lượng token sử dụng để tính chi phí chính xác
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 5/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Trích xuất thông tin từ đoạn chồng lấp</h1>
+        </div>
+        
+        <div class="content-with-image">
+          <div class="text left">
+            <div class="chunk-processing">
+              <h2><i class="fa-solid fa-puzzle-piece chunk-icon"></i> Xử lý theo đoạn chồng lấp</h2>
+              <ul class="process-list">
+                <li>Transcript được chia thành <strong>các đoạn nhỏ</strong> dựa trên số dòng</li>
+                <li>Mỗi đoạn chồng lấp <strong>overlap</strong> với đoạn kế tiếp để đảm bảo ngữ cảnh liên tục</li>
+                <li>Sử dụng <code>chunk_size</code> (kích thước đoạn) và <code>overlap</code> (độ chồng lấp) để kiểm soát quá trình</li>
+                <li>Phương pháp giúp xử lý transcript dài vượt quá context window của LLM</li>
+                <li>Mỗi đoạn chứa thông tin về vị trí trong transcript và mối quan hệ với các đoạn khác</li>
+              </ul>
+            </div>
+            
+            <div class="extraction-process">
+              <h2><i class="fa-solid fa-filter chunk-icon"></i> Quy trình trích xuất thông tin</h2>
+              <ol class="extraction-steps">
+                <li><strong>Phân tách transcript</strong> theo lượt phát biểu của người nói (speaker turns)</li>
+                <li><strong>Tạo đoạn văn chồng lấp</strong> theo bước lặp (stride) được tính dựa trên: <code>stride = max(1, chunk_size - overlap)</code></li>
+                <li><strong>Song song hóa xử lý</strong> các đoạn theo lô (batch) với <code>batch_size</code></li>
+                <li><strong>Áp dụng schema</strong> Pydantic để đảm bảo kết quả có cấu trúc nhất quán</li>
+                <li><strong>Loại bỏ trùng lặp</strong> thông minh dựa trên nội dung thông tin trích xuất</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="image right">
+            <div class="chunk-diagram">
+              <svg width="450" height="500" viewBox="0 0 450 500">
+                <!-- Background Grid -->
+                <g class="grid" stroke="#e2e8f0" stroke-width="0.5">
+                  <line x1="50" y1="0" x2="50" y2="500"/>
+                  <line x1="100" y1="0" x2="100" y2="500"/>
+                  <line x1="150" y1="0" x2="150" y2="500"/>
+                  <line x1="200" y1="0" x2="200" y2="500"/>
+                  <line x1="250" y1="0" x2="250" y2="500"/>
+                  <line x1="300" y1="0" x2="300" y2="500"/>
+                  <line x1="350" y1="0" x2="350" y2="500"/>
+                  <line x1="400" y1="0" x2="400" y2="500"/>
+                </g>
+                
+                <!-- Full Transcript Box -->
+                <rect x="50" y="50" width="350" height="100" fill="#f3f4f6" stroke="#64748b" stroke-width="2"/>
+                <text x="225" y="30" text-anchor="middle" font-size="16" font-weight="bold">Transcript đầy đủ</text>
+                
+                <!-- Chunk 1 -->
+                <rect x="50" y="200" width="150" height="60" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                <text x="125" y="230" text-anchor="middle" font-size="14">Chunk 1</text>
+                
+                <!-- Chunk 2 -->
+                <rect x="150" y="280" width="150" height="60" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <text x="225" y="310" text-anchor="middle" font-size="14">Chunk 2</text>
+                
+                <!-- Chunk 3 -->
+                <rect x="250" y="360" width="150" height="60" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                <text x="325" y="390" text-anchor="middle" font-size="14">Chunk 3</text>
+                
+                <!-- Overlap Areas -->
+                <rect x="150" y="200" width="50" height="60" fill="#bfdbfe" stroke="none"/>
+                <rect x="250" y="280" width="50" height="60" fill="#bfdbfe" stroke="none"/>
+                
+                <!-- Overlap Labels -->
+                <text x="175" y="175" text-anchor="middle" font-size="12" fill="#1e40af">Vùng chồng lấp (overlap)</text>
+                <line x1="175" y1="180" x2="175" y2="200" stroke="#1e40af" stroke-width="1" stroke-dasharray="3,3"/>
+                <text x="275" y="255" text-anchor="middle" font-size="12" fill="#1e40af">Vùng chồng lấp (overlap)</text>
+                <line x1="275" y1="260" x2="275" y2="280" stroke="#1e40af" stroke-width="1" stroke-dasharray="3,3"/>
+                
+                <!-- Extraction Process -->
+                <g transform="translate(380, 230)">
+                  <line x1="0" y1="0" x2="20" y2="0" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                </g>
+                
+                <!-- LLM Processing Box -->
+                <rect x="410" y="200" width="30" height="140" rx="10" fill="#fef3c7" stroke="#eab308" stroke-width="2"/>
+                <text x="425" y="270" text-anchor="middle" font-size="14" writing-mode="tb">LLM Processing</text>
+                
+                <!-- Results -->
+                <g transform="translate(445, 230)">
+                  <line x1="0" y1="0" x2="20" y2="0" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                </g>
+                
+                <!-- Structured Data -->
+                <rect x="475" y="180" width="100" height="180" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                <text x="525" y="210" text-anchor="middle" font-size="14" font-weight="bold">Dữ liệu có cấu trúc</text>
+                <line x1="485" y1="220" x2="565" y2="220" stroke="#16a34a" stroke-width="1"/>
+                <text x="525" y="240" text-anchor="middle" font-size="12">• Tóm tắt</text>
+                <text x="525" y="265" text-anchor="middle" font-size="12">• Quyết định</text>
+                <text x="525" y="290" text-anchor="middle" font-size="12">• Nhiệm vụ</text>
+                <text x="525" y="315" text-anchor="middle" font-size="12">• Câu hỏi</text>
+                <text x="525" y="340" text-anchor="middle" font-size="12">• ...</text>
+                
+                <!-- Arrow markers -->
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <p>Phương pháp đoạn chồng lấp giải quyết vấn đề bối cảnh đứt đoạn và các giới hạn về context window của LLM. Trích xuất thông tin theo schema Pydantic (<code>ChunkSummary</code>, <code>MeetingItems</code>) đảm bảo kết quả nhất quán. Loại bỏ trùng lặp dựa trên tương đồng về nội dung giúp tạo ra ghi chú cuộc họp có cấu trúc và thông tin đầy đủ.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 6/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Kiểm tra chất lượng đầu vào</h1>
+        </div>
+        
+        <div class="content-two-columns">
+          <div class="column">
+            <div class="problem-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-filter"></i>
+                </div>
+                <h3>Quy trình kiểm tra và lợi ích</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul class="check-list">
+                  <li><strong>Kiểm tra rỗng</strong>: Xác định transcript có phải <code>None</code> hoặc chuỗi rỗng không</li>
+                  <li><strong>Kiểm tra độ dài</strong>: Transcript phải có ít nhất <code>100 ký tự</code> để đảm bảo đủ nội dung xử lý</li>
+                  <li><strong>Phát hiện hội thoại</strong>: 
+                    <ul>
+                      <li>Tìm kiếm định dạng <code>SPEAKER_\d+</code> cho các lượt người nói</li>
+                      <li>Hoặc tìm kiếm mẫu <code>[Tên người nói]: [Nội dung]</code></li>
+                    </ul>
+                  </li>
+                  <li><strong>Xác định số người tham gia</strong>: Yêu cầu ít nhất một người nói để xác định đây là cuộc hội thoại có giá trị</li>
+                  <li><strong>Xử lý ngoại lệ</strong>: Bắt các lỗi xảy ra trong quá trình phân tích và xử lý transcript an toàn</li>
+                </ul>
+                <ul class="benefit-list">
+                    <li><strong>Tiết kiệm tài nguyên tính toán</strong>: Chỉ xử lý các transcript có đủ chất lượng để đảm bảo kết quả có ý nghĩa</li>
+                    <li><strong>Tránh gọi API không cần thiết</strong>: Giảm chi phí bằng cách không gửi dữ liệu kém chất lượng tới LLM</li>
+                    <li><strong>Phản hồi kịp thời</strong>: Xác định sớm các vấn đề với đầu vào thay vì đợi quy trình hoàn tất</li>
+                    <li><strong>Xử lý ngoại lệ thông minh</strong>: Đưa ra thông báo lỗi cụ thể giúp người dùng hiểu vấn đề</li>
+                    <li><strong>Tăng tính tin cậy</strong>: Đảm bảo chất lượng đầu ra bằng cách chỉ xử lý đầu vào có ý nghĩa</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="impact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3>Quy trình kiểm tra</h3>
+              </div>
+              
+              <div class="card-body">
+
+                <svg width="750" height="500" viewBox="0 0 750 500">
+                <!-- Background Grid -->
+                <g class="grid" transform="translate(200, 0) scale(1.2)">
+                  
+                    <rect x="0" y="0" width="350" height="400" fill="#f9f9f9" rx="10" ry="10" stroke="#e0e0e0" stroke-width="1" />
+                    
+                    <!-- Input Node -->
+                    <rect x="50" y="30" width="250" height="40" rx="5" ry="5" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" />
+                    <text x="175" y="55" text-anchor="middle" font-size="14" fill="#1565c0">Transcript đầu vào</text>
+                    
+                    <!-- Arrow Down -->
+                    <line x1="175" y1="70" x2="175" y2="90" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4 2" />
+                    <polygon points="175,95 170,85 180,85" fill="#90a4ae" />
+                    
+                    <!-- Check Empty -->
+                    <rect x="50" y="95" width="250" height="30" rx="5" ry="5" fill="#fff3e0" stroke="#f57c00" stroke-width="2" />
+                    <text x="175" y="115" text-anchor="middle" font-size="14" fill="#f57c00">1. Kiểm tra transcript rỗng?</text>
+                    
+                    <!-- Arrow Down -->
+                    <line x1="175" y1="125" x2="175" y2="140" stroke="#90a4ae" stroke-width="2" />
+                    <polygon points="175,145 170,135 180,135" fill="#90a4ae" />
+                    
+                    <!-- Check Length -->
+                    <rect x="50" y="145" width="250" height="30" rx="5" ry="5" fill="#fff3e0" stroke="#f57c00" stroke-width="2" />
+                    <text x="175" y="165" text-anchor="middle" font-size="14" fill="#f57c00">2. Kiểm tra độ dài (>100 ký tự)?</text>
+                    
+                    <!-- Arrow Down -->
+                    <line x1="175" y1="175" x2="175" y2="190" stroke="#90a4ae" stroke-width="2" />
+                    <polygon points="175,195 170,185 180,185" fill="#90a4ae" />
+                    
+                    <!-- Check Pattern -->
+                    <rect x="50" y="195" width="250" height="30" rx="5" ry="5" fill="#fff3e0" stroke="#f57c00" stroke-width="2" />
+                    <text x="175" y="215" text-anchor="middle" font-size="14" fill="#f57c00">3. Tìm kiếm SPEAKER_\d+?</text>
+                    
+                    <!-- Arrow Down -->
+                    <line x1="175" y1="225" x2="175" y2="240" stroke="#90a4ae" stroke-width="2" />
+                    <polygon points="175,245 170,235 180,235" fill="#90a4ae" />
+                    
+                    <!-- Check Alternative Pattern -->
+                    <rect x="50" y="245" width="250" height="30" rx="5" ry="5" fill="#fff3e0" stroke="#f57c00" stroke-width="2" />
+                    <text x="175" y="265" text-anchor="middle" font-size="14" fill="#f57c00">4. Tìm kiếm mẫu [Tên]: [Nội dung]?</text>
+                    
+                    <!-- Arrow Down -->
+                    <line x1="175" y1="275" x2="175" y2="290" stroke="#90a4ae" stroke-width="2" />
+                    <polygon points="175,295 170,285 180,285" fill="#90a4ae" />
+                    
+                    <!-- Decision Node -->
+                    <path d="M175,295 L225,325 L175,355 L125,325 Z" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" />
+                    <text x="175" y="330" text-anchor="middle" font-size="14" fill="#2e7d32">Đủ điều kiện?</text>
+                    
+                    <!-- Arrow "Yes" -->
+                    <line x1="225" y1="325" x2="275" y2="325" stroke="#2e7d32" stroke-width="2" />
+                    <polygon points="280,325 270,320 270,330" fill="#2e7d32" />
+                    <text x="255" y="315" text-anchor="middle" font-size="12" fill="#2e7d32">Có</text>
+                    
+                    <!-- Arrow "No" -->
+                    <line x1="125" y1="325" x2="75" y2="325" stroke="#c62828" stroke-width="2" />
+                    <polygon points="70,325 80,320 80,330" fill="#c62828" />
+                    <text x="95" y="315" text-anchor="middle" font-size="12" fill="#c62828">Không</text>
+                    
+                    <!-- Process Node (Yes) -->
+                    <rect x="280" y="305" width="50" height="40" rx="5" ry="5" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" />
+                    <text x="305" y="330" text-anchor="middle" font-size="14" fill="#2e7d32">Xử lý</text>
+                    
+                    <!-- Skip Node (No) -->
+                    <rect x="20" y="305" width="50" height="40" rx="5" ry="5" fill="#ffebee" stroke="#c62828" stroke-width="2" />
+                    <text x="45" y="330" text-anchor="middle" font-size="14" fill="#c62828">Bỏ qua</text>
+                    
+                    <!-- Legend -->
+                    <rect x="25" y="360" width="300" height="30" rx="5" ry="5" fill="white" stroke="#90a4ae" stroke-width="1" />
+                    <circle cx="45" cy="375" r="5" fill="#1565c0" />
+                    <text x="60" y="380" font-size="12" fill="#333">Đầu vào</text>
+                    
+                    <circle cx="120" cy="375" r="5" fill="#f57c00" />
+                    <text x="135" y="380" font-size="12" fill="#333">Kiểm tra</text>
+                    
+                    <circle cx="195" cy="375" r="5" fill="#2e7d32" />
+                    <text x="210" y="380" font-size="12" fill="#333">Xử lý</text>
+                    
+                    <circle cx="270" cy="375" r="5" fill="#c62828" />
+                    <text x="285" y="380" font-size="12" fill="#333">Bỏ qua</text>
+                </g>
+                </svg>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <p>Quy trình kiểm tra chất lượng đầu vào là bước tiền xử lý quan trọng, giúp nâng cao hiệu quả và giảm chi phí của toàn bộ hệ thống. Bằng cách loại bỏ sớm các transcript không đạt yêu cầu, hệ thống có thể tập trung nguồn lực vào xử lý dữ liệu có giá trị, đồng thời cung cấp phản hồi nhanh chóng và rõ ràng cho người dùng.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 7/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Gộp và loại bỏ thông tin trùng lặp</h1>
+        </div>
+        
+        <div class="content-two-columns">
+          <div class="column">
+            <div class="problem-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-filter-circle-xmark"></i>
+                </div>
+                <h3>Thách thức từ đoạn chồng lấp</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul class="dedup-challenges">
+                  <li><strong>Thông tin trùng lặp</strong>: Khi xử lý nhiều đoạn văn bản chồng lấp, các thông tin giống nhau có thể xuất hiện nhiều lần</li>
+                  <li><strong>Khó xác định trùng lặp chính xác</strong>: Cùng một thông tin có thể được diễn đạt khác nhau qua các đoạn</li>
+                  <li><strong>Ngữ cảnh phân mảnh</strong>: Thông tin có thể bị chia cắt giữa các đoạn, gây khó khăn trong việc phân biệt trùng lặp thật sự</li>
+                  <li><strong>Chi phí tính toán</strong>: So sánh từng cặp thông tin có thể dẫn đến độ phức tạp O(n²)</li>
+                  <li><strong>Cân bằng giữa overlap và trùng lặp</strong>: Cần đạt được mức độ overlap thông tin cao nhất trong khi giảm thiểu trùng lặp</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="impact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>Giải pháp thông minh</h3>
+              </div>
+              
+              <div class="card-body">
+                <div class="dedup-steps">
+                  <h4><i class="fa-solid fa-list-check"></i> Quy trình loại bỏ trùng lặp</h4>
+                  <ol>
+                    <li><strong>Gom nhóm theo loại</strong>: Phân tách và gom nhóm dữ liệu theo từng loại thông tin (tóm tắt, quyết định, câu hỏi, hành động)</li>
+                    <li><strong>Trích xuất đặc trưng</strong>: Sử dụng 100 ký tự đầu tiên làm "fingerprint" của mỗi thông tin</li>
+                    <li><strong>Lưu trữ tạm thời</strong>: Sử dụng <code>set()</code> để theo dõi các fingerprint đã thấy</li>
+                    <li><strong>So sánh nội dung</strong>: Chỉ giữ lại thông tin nếu fingerprint chưa xuất hiện trước đó</li>
+                    <li><strong>Tổng hợp kết quả</strong>: Kết hợp các thông tin độc nhất thành tài liệu cuối cùng</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <p>Thuật toán loại bỏ trùng lặp sử dụng phương pháp tạo "fingerprint" thông minh để đạt hiệu quả O(n) thay vì so sánh từng cặp O(n²). Đối với mỗi loại thông tin (tóm tắt, quyết định, hành động, câu hỏi), hệ thống áp dụng chiến lược khác nhau để đảm bảo hiệu quả tối đa. Kết quả là một tài liệu cuộc họp không chỉ đầy đủ thông tin mà còn loại bỏ các nội dung trùng lặp, giúp người đọc dễ dàng nắm bắt các điểm chính.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 8/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Xử lý Rate Limit và Batch Processing</h1>
+        </div>
+        
+        <div class="content-two-columns">
+          <div class="column">
+            <div class="problem-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Xử lý Rate Limit</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul class="rate-limit-list">
+                  <li><strong>Vấn đề</strong>: API của Google Gemini có giới hạn số lượng request trong một khoảng thời gian (rate limit)</li>
+                  <li><strong>Decorator <code>handle_rate_limit</code></strong>: Một decorator được áp dụng cho các phương thức gọi API</li>
+                  <li><strong>Cơ chế hoạt động</strong>:
+                    <ul>
+                      <li>Tự động bắt lỗi <code>429 Too Many Requests</code> từ API</li>
+                      <li>Thực hiện <code>exponential backoff</code> - chờ đợi với thời gian tăng dần</li>
+                      <li>Số lần thử lại (retry) được cấu hình trước</li>
+                      <li>Logging chi tiết quá trình retry để phục vụ debug</li>
+                    </ul>
+                  </li>
+                  <li><strong>Áp dụng</strong>: Được sử dụng trong nhiều phương thức như <code>_invoke_llm_with_rate_limit</code>, <code>_batch_with_rate_limit</code></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="impact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h3>Batch Processing</h3>
+              </div>
+              
+              <div class="card-body">
+                <ul class="batch-list">
+                  <li><strong>Vấn đề</strong>: Xử lý hàng loạt chunk có thể gây quá tải API và tốn thời gian</li>
+                  <li><strong>Giải pháp</strong>: Xử lý các chunk theo lô (batch) để cân bằng giữa hiệu suất và giới hạn API</li>
+                  <li><strong>Cơ chế thực hiện</strong>:
+                    <ul>
+                      <li>Chia danh sách chunk thành các lô nhỏ với kích thước cố định <code>batch_size</code></li>
+                      <li>Xử lý đồng thời các chunk trong một lô với <code>max_concurrency</code></li>
+                      <li>Tiến hành xử lý lần lượt qua các lô, chờ hoàn tất trước khi chuyển sang lô tiếp theo</li>
+                      <li>Ghi nhận và theo dõi token usage cho từng lô, từng chunk</li>
+                    </ul>
+                  </li>
+                  <li><strong>Ưu điểm</strong>:
+                    <ul>
+                      <li>Tăng tốc đáng kể quá trình xử lý so với tuần tự</li>
+                      <li>Kiểm soát tốt tài nguyên hệ thống và giới hạn API</li>
+                      <li>Giảm thời gian chờ đợi tổng thể</li>
+                      <li>Xử lý an toàn với lỗi - lỗi ở một chunk không ảnh hưởng toàn bộ quá trình</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <p>Kết hợp xử lý <strong>Rate Limit</strong> và <strong>Batch Processing</strong> tạo nên một hệ thống mạnh mẽ có khả năng xử lý lượng lớn dữ liệu hiệu quả trong khi vẫn tuân thủ các giới hạn API. Phương pháp này đảm bảo tối ưu hóa hiệu suất và chi phí, đồng thời giúp hệ thống ổn định ngay cả khi xử lý các transcript có kích thước lớn.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 9/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Luồng xử lý chi tiết</h1>
+        </div>
+        
+        <div class="description-container">
+          <h2><i class="fa-solid fa-diagram-project"></i> Tổng quan quy trình xử lý dữ liệu</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item blue">
+              <h3><i class="fa-solid fa-code-branch"></i> Kiến trúc Directed Acyclic Graph</h3>
+              <p>Quy trình xử lý dữ liệu được thiết kế theo kiến trúc đồ thị có hướng không có chu trình (DAG), cho phép luồng xử lý linh hoạt với các nút và điều kiện rẽ nhánh rõ ràng.</p>
+            </div>
+            
+            <div class="feature-item orange">
+              <h3><i class="fa-solid fa-database"></i> Quản lý trạng thái hiệu quả</h3>
+              <p>Sử dụng MeetingState làm đối tượng trung tâm, hệ thống lưu trữ và cập nhật trạng thái giữa các bước xử lý, đảm bảo tính nhất quán và theo dõi tiến trình.</p>
+            </div>
+            
+            <div class="feature-item green">
+              <h3><i class="fa-solid fa-layer-group"></i> Xử lý batch tối ưu</h3>
+              <p>Các đoạn transcript được xử lý theo lô với độ chồng lấp, tận dụng song song hóa để cải thiện hiệu suất trong khi vẫn đảm bảo ngữ cảnh liên tục.</p>
+            </div>
+            
+            <div class="feature-item blue">
+              <h3><i class="fa-solid fa-shield-halved"></i> Kiểm tra chất lượng đầu vào</h3>
+              <p>Hệ thống tự động đánh giá chất lượng transcript trước khi xử lý chính, giúp tiết kiệm thời gian và chi phí khi xử lý dữ liệu không đạt yêu cầu.</p>
+            </div>
+            
+            <div class="feature-item orange">
+              <h3><i class="fa-solid fa-filter-circle-xmark"></i> Loại bỏ trùng lặp thông minh</h3>
+              <p>Các thông tin trùng lặp từ đoạn chồng lấp được xác định và kết hợp theo cơ chế fingerprint, đảm bảo không mất thông tin đồng thời loại bỏ sự lặp lại.</p>
+            </div>
+            
+            <div class="feature-item green">
+              <h3><i class="fa-solid fa-file-invoice"></i> Định dạng kết quả chuẩn</h3>
+              <p>Kết quả cuối cùng được tạo theo định dạng Markdown chuẩn hóa, tích hợp thông tin từ tất cả các chunk đã xử lý và các thống kê về token usage.</p>
+            </div>
+          </div>
+        </div>
+
+      <img src="diagram.png" alt="Diagram of data processing workflow" style="width: 100%; max-width: 1000px; display: block; margin: auto;">
+
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 10/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="slide-title">
+          <h1>Hướng phát triển trong tương lai</h1>
+        </div>
+        
+        <!-- Simpler layout with two columns -->
+        <div class="content-two-columns">
+          <div class="column">
+            <div class="problem-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-microphone-lines"></i>
+                </div>
+                <h3>Nhận diện người nói thông minh</h3>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Đánh nhãn thủ công người nói chỉ trong lần đầu tiên</li>
+                  <li>Tự động nhận diện trong các cuộc họp tiếp theo</li>
+                  <li>Hỗ trợ nhiều giọng nói khác nhau với độ chính xác cao</li>
+                  <li>Tích hợp metadata người nói vào transcript</li>
+                </ul>
+                
+                <div class="card-header" style="margin-top: 30px;">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </div>
+                  <h3>Nâng cao chất lượng tài liệu</h3>
+                </div>
+                <ul>
+                  <li>Tạo tài liệu với nhiều định dạng (PDF, DOCX, PPTX)</li>
+                  <li>Áp dụng mẫu thiết kế chuyên nghiệp</li>
+                  <li>Tích hợp biểu đồ và đồ thị trực quan</li>
+                  <li>Hỗ trợ nhiều ngôn ngữ với định dạng đúng chuẩn</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="impact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h3>Tự động gửi mail công việc</h3>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Tạo mail được cá nhân hóa cho từng thành viên</li>
+                  <li>Tự động trích xuất nhiệm vụ từ cuộc họp</li>
+                  <li>Thiết lập nhắc nhở dựa trên deadline</li>
+                  <li>Tích hợp với các nền tảng email phổ biến</li>
+                </ul>
+                
+                <div class="card-header" style="margin-top: 30px;">
+                  <div class="card-icon">
+                    <i class="fa-solid fa-diagram-project"></i>
+                  </div>
+                  <h3>Tích hợp đa nền tảng</h3>
+                </div>
+                <ul>
+                  <li>Đồng bộ hóa với Google Calendar</li>
+                  <li>Kết nối với các nền tảng để chia sẻ thông tin</li>
+                  <li>API toàn diện cho phép tùy chỉnh tích hợp</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="solution-preview">
+          <div class="solution-icon">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <p>Các tính năng này sẽ nâng cao đáng kể giá trị của hệ thống Meobeo.ai, chuyển đổi từ một công cụ trích xuất thông tin cơ bản sang một trợ lý cuộc họp toàn diện. Khả năng nhận diện người nói chính xác kết hợp với tự động hóa phân phối nhiệm vụ và tạo tài liệu chuyên nghiệp sẽ tạo ra một hệ sinh thái đầy đủ cho quản lý cuộc họp.</p>
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 4, 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-container">
+    <div class="slide">
+      <!-- Background graphics -->
+      <div class="graphics-container"></div>
+      
+      <!-- Slide Header Bar -->
+      <div class="slide-header-bar">
+        <div class="header-logo">
+          <div class="logo-text">Meobeo.ai</div>
+        </div>
+        <div class="slide-number">Slide 11/11</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="slide-content-wrapper">
+        <div class="closing-container">
+          <div class="thank-you">Cảm ơn!</div>
+          <div class="questions">Bạn có câu hỏi nào về<br>Phương pháp Trích xuất Thông tin Cuộc họp?</div>
+
+          <img src="logo.png" alt="Meobeo.ai Logo" class="company-logo" onerror="this.style.display='none'">
+        </div>
+      </div>
+      
+      <!-- Slide Footer Bar -->
+      <div class="slide-footer-bar">
+        <div class="footer-company">Phương pháp trích xuất thông tin cuộc họp</div>
+        <div class="footer-date">Tháng 6, 2023</div>
+      </div>
+    </div>
+  </div>
+  <script src="fin.js"></script>
+</body>
+</html>
